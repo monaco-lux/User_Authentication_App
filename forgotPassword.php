@@ -20,6 +20,11 @@ $_SESSION['wasHome'] = "Yes";
   <h1>Local Library CMS 📚</h1>
 </div>
 
+<div class="w3-bar w3-black">
+ <a href="index.php" class="w3-bar-item w3-button">Home</a>
+ <a href="signUp.php" class="w3-bar-item w3-button">Sign up!</a>
+</div>
+
 <div class="w3-container w3-section w3-teal w3-mobile">
     <h2>Forgotten Password</h2>
     <p>Please enter your username and recovery phrase below.</p>
