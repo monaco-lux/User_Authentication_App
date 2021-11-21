@@ -9,9 +9,10 @@ $_SESSION['wasHome'] = "Yes";
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Local Library: Sign in</title>
+<title>Local Library CMS: Forgotten Password</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="code/js/recoveryAjax.js"></script>
 </head>
 <body>
 
@@ -20,7 +21,8 @@ $_SESSION['wasHome'] = "Yes";
 </div>
 
 <div class="w3-container w3-section w3-teal w3-mobile">
-    <h2>Login</h2>
+    <h2>Forgotten Password</h2>
+    <p>Please enter your username and recovery phrase below.</p>
 </div>
 
 
@@ -36,27 +38,25 @@ $_SESSION['wasHome'] = "Yes";
       class="w3-input w3-border"
     >
 
-    <label for="password"><b>Password</b></label>
+    <label for="recoveryPhrase"><b>Recovery Phrase</b></label>
     <input
-      type="password"
-      name='password'
-      id="password"
+      type="text"
+      name='recoveryPhrase'
+      id="recoveryPhrase"
       required
       class="w3-input w3-border"
     >
     <div class="w3-margin-top w3-margin-bottom">
       <div class="w3-show-inline-block">
         <div class="w3-bar">
-          <button type="submit" class="w3-button w3-black w3-hover-green">Login ✔️</button>
-          <button type="reset" class="w3-button w3-black w3-hover-yellow">Sweep Form 🧹</button>
+          <button type="submit" class="w3-button w3-black w3-hover-green">Request Password ❓</button>
         </div>
       </div>
     </div>
   </form>
 </div>
-<div class="w3-container w3-center w3-mobile">
-  <a href="forgotPassword.php" class="w3-show-inline-block w3-margin-right">Forgot password?</a>
-  <a href="signUp.php" class="w3-show-inline-block w3-margin-left">Don't have an account? <b style="color: teal;">Sign up!</b></a>
+
+<div id = "stage" class="w3-container w3-section w3-green">
 </div>
 
 <div class="w3-container w3-teal w3-section w3-mobile">
