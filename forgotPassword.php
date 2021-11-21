@@ -20,7 +20,7 @@ $_SESSION['wasHome'] = "Yes";
   <h1>Local Library CMS 📚</h1>
 </div>
 
-<div class="w3-bar w3-black">
+<div class="w3-bar w3-black w3-mobile">
  <a href="index.php" class="w3-bar-item w3-button">Home</a>
  <a href="signUp.php" class="w3-bar-item w3-button">Sign up!</a>
 </div>
