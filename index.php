@@ -1,3 +1,8 @@
+<?php
+session_start();
+$_SESSION['wasHome'] = "Yes";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,9 +54,9 @@
     </div>
   </form>
 </div>
-<div class="w3-container w3-yellow w3-center w3-mobile">
-  <p class="w3-show-inline-block w3-margin-right">Forgot password?</p>
-  <p class="w3-show-inline-block w3-margin-left">Don't have an account? <b>Sign up!</b></p>
+<div class="w3-container w3-center w3-mobile">
+  <a href="forgotPassword.php" class="w3-show-inline-block w3-margin-right">Forgot password?</a>
+  <a href="signUp.php" class="w3-show-inline-block w3-margin-left">Don't have an account? <b style="color: teal;">Sign up!</b></a>
 </div>
 
 <div class="w3-container w3-teal w3-section w3-mobile">
