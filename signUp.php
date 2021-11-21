@@ -9,7 +9,7 @@ $_SESSION['wasHome'] = "Yes";
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Local Library: Sign up</title>
+<title>Local Library CMS: Sign up</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="code/js/conditionalLibrarianPass.js"></script>
@@ -69,7 +69,6 @@ $_SESSION['wasHome'] = "Yes";
       <div class="w3-show-inline-block">
         <div class="w3-bar">
           <button type="submit" class="w3-button w3-black w3-hover-green">Sign up ✍️</button>
-          <button type="reset" class="w3-button w3-black w3-hover-yellow">Sweep Form 🧹</button>
         </div>
       </div>
     </div>
