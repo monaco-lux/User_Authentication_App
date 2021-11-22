@@ -29,7 +29,7 @@ session_start();
 
 
 <div class="w3-section w3-container w3-mobile">
-  <form action='code/php/signUpWriteBack.php' method='post'>
+  <form action='code/php/includes/signUpWriteBack.inc.php' method='post'>
 
     <label for="userName"><b>Username</b></label>
     <input
@@ -67,7 +67,7 @@ session_start();
     <div class="w3-section w3-margin-bottom">
       <div class="w3-show-inline-block">
         <div class="w3-bar">
-          <button type="submit" class="w3-button w3-black w3-hover-green">Sign up ✍️</button>
+          <button type="submit" class="w3-button w3-black w3-hover-green" id="submit" name="submit">Sign up ✍️</button>
         </div>
       </div>
     </div>
