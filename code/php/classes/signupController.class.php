@@ -6,6 +6,7 @@ class SignupControl extends Signup
   private $password;
   private $accountType;
   private $passCode;
+  private $secretCode = "LocalLibraryCMSLibrarianCreate2021$";
 
   public function __get($property) {
     if (property_exists($this, $property)) {
