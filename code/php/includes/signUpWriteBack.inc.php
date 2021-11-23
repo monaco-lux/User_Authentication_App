@@ -1,7 +1,9 @@
 <?php
 session_start();
-include "../classes/signupController.class.php";
 include "../classes/dbh.class.php";
+include "../classes/signup.class.php";
+include "../classes/signupController.class.php";
+
 
 if(!isset($_POST['submit']))
 {
@@ -9,7 +11,7 @@ if(!isset($_POST['submit']))
 }
 
 // new object signup object
-$newSignup = new Signup();
+$newSignup = new SignupControl();
 
 // set post variables from posted data
 $newSignup->userName = $_POST['userName'];
@@ -17,5 +19,9 @@ $newSignup->password = $_POST['password'];
 $newSignup->accountType = $_POST['accountType'];
 $newSignup->passCode = $_POST['passCode'];
 
-echo $newSignup->userName;
+// running errror handler and user signup
+$newSignup->signupUser();
+
+//go back to frontpage
+header("Location: ../../../index.php?error=none");
 ?>

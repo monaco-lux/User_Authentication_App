@@ -1,6 +1,6 @@
 <?php
 
-class Signup
+class SignupControl extends Signup
 {
   private $userName;
   private $password;
@@ -13,23 +13,56 @@ class Signup
     }
   }
 
-  public function __set($property, $value) {
+  public function __set($property, $value)
+  {
       if (property_exists($this, $property)) {
         $this->$property = $value;
       }
     }
 
-    private function invalidUsername()
+
+
+  private function invalidUsername()
+  {
+    $result;
+    if (!preg_match("/^[a-zA-Z0-9]*$/",$this->userName))
     {
-      $result;
-      if (!preg_match("/^[a-zA-Z0-9]*$/",$this->userName))
-      {
-        $result = false;
-      } else {
-        $result = true;
-      }
-      return $result;
+      $result = false;
+    } else {
+      $result = true;
     }
+    return $result;
+  }
+
+  private function userNameTakenCheck()
+  {
+    $result;
+    if (!$this->checkUser($this->userName))
+    {
+      $result = false;
+    } else {
+      $result = true;
+    }
+    return $result;
+  }
+
+  public function signupUser()
+  {
+    if($this->invalidUsername() == false)
+    {
+      header("Location: ../../../index.php?error=invalidusername");
+      exit();
+    }
+    if($this->userNameTakenCheck() == false)
+    {
+      header("Location: ../../../index.php?error=usernametaken");
+      exit();
+    }
+
+    $this->setUser($this->userName, $this->password);
+
+  }
+
 
 }
 

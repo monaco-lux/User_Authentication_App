@@ -3,13 +3,13 @@
 class DbH
 {
 
-  private function connect()
+  protected function connect()
   {
     try
     {
-      $username = "root";
-      $password = "";
-      $dbh = new PDO('mysql:host=URL;dbname=DBNAME', $username, $password);
+      $username = "sql11453113";
+      $password = "mwI8ip452n";
+      $dbh = new PDO('mysql:host=sql11.freemysqlhosting.net;dbname=sql11453113', $username, $password);
       return $dbh;
     }
     catch (PDOException $e)
