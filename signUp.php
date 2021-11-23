@@ -37,6 +37,7 @@ session_start();
       name="userName"
       id="userName"
       autofocus required
+      placeholder="Please enter only numbers and letters"
       class="w3-input w3-border"
     >
 
