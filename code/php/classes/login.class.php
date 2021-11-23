@@ -31,20 +31,25 @@ class Login extends DbH
       $stmt = null;
       header("Location: ../../../index.php?error=wrongpassword");
       exit();
-    } elseif($checkPwd == true){
-      $stmt = $this->connect()->prepare('SELECT * FROM user WHERE username = ? and password = ?;');
-      if(!$stmt->execute([$uid, $pwd])) // if query doesnt work throw error
+    } elseif($checkPwd == true)
+    {
+
+      $stmt = $this->connect()->prepare('SELECT * FROM user WHERE username = ? ;');
+
+      if(!$stmt->execute([$uid])) // if query doesnt work throw error
       {
         $stmt = null;
         header("Location: ../../../index.php?error=incorrectpassword");
         exit();
       }
-      if($stmt->rowCount() == 0) // if no results, throw error
+
+      if($stmt->rowCount() == 1) // if no results, throw error
       {
         $stmt = null;
         header("Location: ../../../index.php?error=usernotfound");
         exit();
       }
+
       $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
       session_start();
       $_SESSION['userid'] = $user[0]['id'];

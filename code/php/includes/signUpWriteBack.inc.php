@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "../classes/dbh.class.php";
 include "../classes/signup.class.php";
 include "../classes/signupController.class.php";

@@ -22,7 +22,6 @@ class SignupControl extends Signup
     }
 
 
-
   private function invalidUsername()
   {
     $result;
