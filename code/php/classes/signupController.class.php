@@ -34,7 +34,7 @@ class SignupControl extends Signup
     return $result;
   }
 
-  private function userNameTakenCheck()
+  private function userNameTakenCheck() // this isn't working!
   {
     $result;
     if (!$this->checkUser($this->userName))
@@ -59,7 +59,7 @@ class SignupControl extends Signup
       exit();
     }
 
-    $this->setUser($this->userName, $this->password);
+    $this->setUser($this->userName, $this->password, $this->accountType);
 
   }
 

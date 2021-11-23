@@ -3,12 +3,12 @@
 class Signup extends DbH
 {
 
-  protected function setUser($userName, $password)
+  protected function setUser($userName, $password, $accountType)
   {
-    $stmt = $this->connect()->prepare('INSERT INTO user (username, password) VALUES(?,?);');
+    $stmt = $this->connect()->prepare('INSERT INTO user (username, password, role) VALUES(?,?, ?);');
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT); // encrypt pwd
 
-    if(!$stmt->execute(array($userName, $hashedPwd))) //if query fails
+    if(!$stmt->execute(array($userName, $hashedPwd, $accountType))) //if query fails
     {
       $stmt = null;
       header("Location: ../../../index.php?error=passstmtfailed"); //send back to home page with error message
@@ -21,13 +21,26 @@ class Signup extends DbH
   protected  function checkUser($userName) // check to see if username exists. If exists return false.
   {
 
-    $stmt = $this->connect()->prepare('SELECT username FROM user WHERE username = ? ;'); // references dbh class method connect
-    if(!$stmt->execute($userName)) //if query fails
+
+    $stmt = $this->connect()->prepare('SELECT username FROM user WHERE username = ?;');
+    if(!$stmt->execute([$userName]))
     {
-      $stmt = null;
-      header("Location: ../../../index.php?error=selectstmtfailed"); //send back to home page with error message
+      $stmt = NULL;
+      header("../../../index.php?error=Selectfail");
       exit();
     }
+
+/*
+    try
+    {
+      $stmt = $this->connect()->prepare('SELECT username FROM user WHERE username = ? ;');
+    }
+    catch (PDOException $e)
+    {
+      print "Error!: ".$e->getMessage()."<br>";
+      die();
+    }
+    */
 
     $resultCheck;
 
