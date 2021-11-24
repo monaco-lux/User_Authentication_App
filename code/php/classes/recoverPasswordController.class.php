@@ -20,9 +20,9 @@ class RecoverPassWordController extends RecoverPassword
     }
 
 
-  public function loginUserNow()
+  public function recoverPasswordNow()
   {
-    $this->getUser($this->userName, $this->password);
+    $this->getPassword($this->userName, $this->recoveryPhrase);
   }
 
 

@@ -10,5 +10,10 @@ if(!isset($_POST['submit']))
 }
 
 $newRecoverPwd = new RecoverPassWordController();
+$newRecoverPwd->userName = $_POST['userName'];
+$newRecoverPwd->recoveryPhrase = $_POST['recoveryPhrase'];
+
+$newRecoverPwd->recoverPasswordNow();
+header("Location: ../../../changePassword.php");
 
 ?>
