@@ -6,9 +6,9 @@ class Login extends DbH
   protected function getUser($uid, $pwd)
   {
 
-    $stmt = $this->connect()->prepare('SELECT password FROM user WHERE username = ? or password = ?;');
+    $stmt = $this->connect()->prepare('SELECT password FROM user WHERE username = ?;');
 
-    if(!$stmt->execute([$uid, $pwd])) // if query doesnt work throw error
+    if(!$stmt->execute([$uid])) // if query doesnt work throw error
     {
       $stmt = null;
       header("Location: ../../../index.php?error=cannotlogin");
@@ -18,7 +18,7 @@ class Login extends DbH
     if($stmt->rowCount() == 0) // if no results, throw error
     {
       $stmt = null;
-      header("Location: ../../../index.php?error=usernotfound");
+      header("Location: ../../../index.php?error=usernotfound1");
       exit();
     }
 
@@ -43,7 +43,7 @@ class Login extends DbH
         exit();
       }
 
-      if($stmt->rowCount() == 1) // if no results, throw error
+      if($stmt->rowCount() == 0) // if no results, throw error
       {
         $stmt = null;
         header("Location: ../../../index.php?error=usernotfound");
