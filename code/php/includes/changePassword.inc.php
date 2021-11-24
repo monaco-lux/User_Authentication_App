@@ -13,6 +13,6 @@ $changePwd = new ChangePasswordController();
 $changePwd->newPassword = $_POST['newPassword'];
 
 $newRecoverPwd->changePasswordNow();
-header("Location: ../../../dashboard.php");
+header("Location: ../../../dashboard.php?error=passwordchangesuccess");
 
 ?>
