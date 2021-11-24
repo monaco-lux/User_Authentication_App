@@ -17,6 +17,7 @@ $newSignup->userName = $_POST['userName'];
 $newSignup->password = $_POST['password'];
 $newSignup->accountType = $_POST['accountType'];
 $newSignup->passCode = $_POST['passCode'];
+$newSignup->recoveryPhrase = $_POST['recoveryPhrase'];
 
 // running errror handler and user signup | if the passcode is incorrect they cannot create a librarian
 if($newSignup->accountType == "member" || $newSignup->passCode == $newSignup->secretCode)

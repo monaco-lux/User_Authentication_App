@@ -50,6 +50,16 @@ session_start();
       class="w3-input w3-border"
     >
 
+    <label for="recoveryPhrase"><b>Recovery Phrase</b></label>
+    <input
+      type="text"
+      name="recoveryPhrase"
+      id="recoveryPhrase"
+      required
+      placeholder="Please enter a recovery phrase"
+      class="w3-input w3-border"
+    >
+
     <label for="accountType"><b>Account Type</b></label>
     <select class="w3-select" name="accountType" id="accountType" required>
      <option value="" disabled selected>Choose your option</option>

@@ -6,6 +6,7 @@ class SignupControl extends Signup
   private $password;
   private $accountType;
   private $passCode;
+  private $recoveryPhrase;
   private $secretCode = "LocalLibraryCMSLibrarianCreate2021$";
 
   public function __get($property) {
@@ -59,7 +60,7 @@ class SignupControl extends Signup
       exit();
     }
 
-    $this->setUser($this->userName, $this->password, $this->accountType);
+    $this->setUser($this->userName, $this->password, $this->accountType, $this->recoveryPhrase);
 
   }
 

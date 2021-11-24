@@ -3,12 +3,12 @@
 class Signup extends DbH
 {
 
-  protected function setUser($userName, $password, $accountType)
+  protected function setUser($userName, $password, $accountType, $recoveryPhrase)
   {
-    $stmt = $this->connect()->prepare('INSERT INTO user (username, password, role) VALUES(?,?, ?);');
+    $stmt = $this->connect()->prepare('INSERT INTO user (username, password, role, recoveryphrase) VALUES(?, ?, ?, ?);');
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT); // encrypt pwd
 
-    if(!$stmt->execute(array($userName, $hashedPwd, $accountType))) //if query fails
+    if(!$stmt->execute(array($userName, $hashedPwd, $accountType, $recoveryPhrase))) //if query fails
     {
       $stmt = null;
       header("Location: ../../../index.php?error=passstmtfailed"); //send back to home page with error message
