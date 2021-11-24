@@ -25,7 +25,7 @@ session_start();
 </div>
 
 <div class="w3-container w3-section w3-teal w3-mobile">
-    <h2>Dashboard</h2>
+    <h2>Change Password</h2>
 </div>
 
 <?php
