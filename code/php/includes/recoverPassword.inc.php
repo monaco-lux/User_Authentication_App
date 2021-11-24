@@ -1,15 +1,15 @@
 <?php
 include "../classes/dbh.class.php";
-include "../classes/reciverPassword.class.php";
+include "../classes/recoverPassword.class.php";
 include "../classes/recoverPasswordController.class.php";
 
 
-if(!isset($_POST['submit']))
+if(!isset($_POST['recoveryPhrase']))
 {
   die();
 }
 
-$newRecoverPwd = new RecoverPassWordController();
+$newRecoverPwd = new RecoverPasswordController();
 $newRecoverPwd->userName = $_POST['userName'];
 $newRecoverPwd->recoveryPhrase = $_POST['recoveryPhrase'];
 

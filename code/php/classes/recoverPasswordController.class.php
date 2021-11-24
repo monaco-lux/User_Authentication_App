@@ -1,6 +1,6 @@
 <?php
 
-class RecoverPassWordController extends RecoverPassword
+class RecoverPasswordController extends RecoverPassword
 {
   private $userName;
   private $recoveryPhrase;

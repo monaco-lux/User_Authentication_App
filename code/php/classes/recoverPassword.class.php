@@ -6,7 +6,7 @@ class RecoverPassword extends DbH
   protected function getPassword($uid, $recoveryPhrase)
   {
 
-    $stmt = $this->connect()->prepare('SELECT * FROM user WHERE username = ? and recoverphrase = ?;');
+    $stmt = $this->connect()->prepare('SELECT * FROM user WHERE username = ? and recoveryphrase = ? ;');
 
     if(!$stmt->execute([$uid, $recoveryPhrase])) // if query doesnt work throw error
     {
@@ -27,13 +27,12 @@ class RecoverPassword extends DbH
       $_SESSION['userid'] = $user[0]['id'];
       $_SESSION['username'] = $user[0]['username'];
       $_SESSION['role'] = $user[0]['role'];
+      $stmt = null;
     }
 
-
-    $stmt = null;
   }
 
-}
+
 
 
 ?>
