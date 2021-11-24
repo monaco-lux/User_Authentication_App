@@ -53,7 +53,7 @@ session_start();
     <div class="w3-margin-top w3-margin-bottom">
       <div class="w3-show-inline-block">
         <div class="w3-bar">
-          <button type="submit" class="w3-button w3-black w3-hover-green" id="passReq">Request Password ❓</button>
+          <button type="submit" class="w3-button w3-black w3-hover-green" id="submit">Request Password ❓</button>
         </div>
       </div>
     </div>

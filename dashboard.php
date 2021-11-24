@@ -19,10 +19,9 @@ session_start();
 </div>
 
 <div class="w3-bar w3-black">
- <a href="index.php" class="w3-bar-item w3-button">Home</a>
- <a href="signUp.php" class="w3-bar-item w3-button">Sign up!</a>
- <a href="" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
- <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-right"><?php echo "Hello: ".$_SESSION['username']?></a>
+ <!-- <a href="index.php" class="w3-bar-item w3-button">Home</a> -->
+ <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
+ <a href="" class="w3-bar-item w3-button w3-right"><?php echo "Hello: ".ucfirst($_SESSION['username']);?></a>
 </div>
 
 <div class="w3-container w3-section w3-teal w3-mobile">
@@ -32,7 +31,7 @@ session_start();
 <?php
 if(isset($_SESSION['userid']))
 {
-  echo "Hello: ".$_SESSION['username'];
+  echo "There's nothing here!";
 } else{
   header("Location: index.php?error=notallowed");
 }
