@@ -31,7 +31,37 @@ session_start();
 <?php
 if(isset($_SESSION['userid']))
 {
-  echo "There's nothing here!";
+  ?>
+  <div class="w3-section w3-container w3-mobile">
+    <form action='code/php/includes/signUpWriteBack.inc.php' method='post'>
+
+      <label for="userName"><b>Username</b></label>
+      <input
+        type="text"
+        name="userName"
+        id="userName"
+        autofocus required
+        placeholder="Please enter only numbers and letters"
+        class="w3-input w3-border"
+      >
+
+      <label for="password"><b>Password</b></label>
+      <input
+        type="password"
+        name='password'
+        id="password"
+        required
+        class="w3-input w3-border"
+    <div class="w3-section w3-margin-bottom">
+        <div class="w3-show-inline-block">
+          <div class="w3-bar">
+            <button type="submit" class="w3-button w3-black w3-hover-green" id="submit" name="submit">Sign up ✍️</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <?php
 } else{
   header("Location: index.php?error=notallowed");
 }

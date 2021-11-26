@@ -2,6 +2,7 @@
 
 class ChangePasswordController extends ChangePassword
 {
+  private $uid;
   private $newPassword;
 
 
@@ -21,7 +22,7 @@ class ChangePasswordController extends ChangePassword
 
   public function changePasswordNow()
   {
-    $this->changePassword($this->newPassword);
+    $this->changePassword($this->newPassword. $this->uid);
   }
 
 
