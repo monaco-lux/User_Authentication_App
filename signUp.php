@@ -21,9 +21,9 @@ session_start();
 </div>
 
 <div class="w3-bar w3-black">
-  <a href="index.php" class="w3-bar-item w3-button">Home</a>
-  <a href="signUp.php" class="w3-bar-item w3-button">Sign up!</a>
-  <a href="forgotPassword.php" class="w3-bar-item w3-button">Forgot your password?</a>
+ <a href="index.php" class="w3-bar-item w3-hover-teal w3-button">Home</a>
+ <a href="signUp.php" class="w3-bar-item w3-hover-teal w3-button">Sign up!</a>
+ <a href="forgotPassword.php" class="w3-bar-item w3-hover-teal w3-button">Forgot your password?</a>
 </div>
 
 <div class="w3-container w3-section w3-teal w3-mobile">
