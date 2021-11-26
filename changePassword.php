@@ -21,7 +21,7 @@ session_start();
 
 <div class="w3-bar w3-black">
  <!-- <a href="index.php" class="w3-bar-item w3-button">Home</a> -->
- <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
+ <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-hover-orange w3-right">Logout</a>
  <a href="" class="w3-bar-item w3-button w3-right"><?php echo "Hello: ".ucfirst($_SESSION['username']);?></a>
 </div>
 
@@ -34,16 +34,7 @@ if(isset($_SESSION['userid']))
 {
   ?>
   <div class="w3-section w3-container w3-mobile">
-    <form action='code/php/includes/signUpWriteBack.inc.php' method='post'>
-
-      <label for="userName"><b>Username</b></label>
-      <input
-        type="text"
-        name="userName"
-        id="userName"
-        autofocus required
-        class="w3-input w3-border"
-      >
+    <form action='code/php/includes/changePassword.inc.php' method='post'>
 
       <label for="newPassword"><b>New Password</b></label>
       <input
@@ -55,7 +46,7 @@ if(isset($_SESSION['userid']))
     <div class="w3-section w3-margin-bottom">
         <div class="w3-show-inline-block">
           <div class="w3-bar">
-            <button type="submit" class="w3-button w3-black w3-hover-green" id="submit" name="submit">Sign up ✍️</button>
+            <button type="submit" class="w3-button w3-black w3-hover-orange w3-section" id="submit" name="submit">Set Password ✍️</button>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
 class ChangePassword extends DbH
 {
 
-  protected function changePassword($password, $uid)
+  protected function changePasswordNew($password, $uid)
   {
     $stmt = $this->connect()->prepare('UPDATE user SET password = ? WHERE username = ? ;');
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT); // encrypt pwd

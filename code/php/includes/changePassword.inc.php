@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include "../classes/dbh.class.php";
 include "../classes/changePassword.class.php";
 include "../classes/changePasswordController.class.php";
@@ -9,10 +11,10 @@ if(!isset($_POST['newPassword']))
 }
 
 $changePwd = new ChangePasswordController();
-$changePwd->uid = $_POST['userName'];
+$changePwd->uid = $_SESSION['username'];
 $changePwd->newPassword = $_POST['newPassword'];
 
-$newRecoverPwd->changePasswordNow();
+$changePwd->changePasswordNow();
 
 header("Location: ../../../dashboard.php?error=passwordchangesuccess");
 
