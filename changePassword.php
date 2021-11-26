@@ -36,6 +36,15 @@ if(isset($_SESSION['userid']))
   <div class="w3-section w3-container w3-mobile">
     <form action='code/php/includes/signUpWriteBack.inc.php' method='post'>
 
+      <label for="userName"><b>Username</b></label>
+      <input
+        type="text"
+        name="userName"
+        id="userName"
+        autofocus required
+        class="w3-input w3-border"
+      >
+
       <label for="newPassword"><b>New Password</b></label>
       <input
         type="password"

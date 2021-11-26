@@ -13,6 +13,7 @@ $changePwd->uid = $_POST['userName'];
 $changePwd->newPassword = $_POST['newPassword'];
 
 $newRecoverPwd->changePasswordNow();
+
 header("Location: ../../../dashboard.php?error=passwordchangesuccess");
 
 ?>
