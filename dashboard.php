@@ -30,14 +30,57 @@ session_start();
 </div>
 
 <?php
-if(isset($_SESSION['userid']))
+if(!isset($_SESSION['userid']))
 {
-  echo "There's nothing here!";
-} else{
   header("Location: index.php?error=notallowed");
 }
 
+if($_SESSION['role'] == "member" || $_SESSION['role'] == "librarian")
+{
+
 ?>
+<div class="w3-container w3-section w3-mobile">
+  <h3><u>Books Available</u></h3>
+</div>
+<form class="w3-container">
+  <label for="searchBook">Search for a book</label>
+  <input
+    type="text"
+    name='searchBook'
+    id="searchBook"
+    class="w3-input w3-border"
+  >
+
+  <button type="submit" class="w3-button w3-black w3-hover-green w3-section">Search 🔍</button>
+</form>
+<table class="w3-table w3-bordered w3-mobile">
+  <tr>
+    <th><b>Book</b></th>
+    <th><b>Year</b></th>
+    <th><b>Genre</b></th>
+    <th><b>Age Group</b></th>
+  </tr>
+  <?php
+  foreach($_SESSION['books'] as $books)
+  {
+  ?>
+  <tr>
+    <td><?php echo $books['book_name']; ?></td>
+    <td><?php echo $books['year'];?></td>
+    <td><?php echo $books['genre']; ?></td>
+    <td><?php echo $books['age_group']?></td>
+  </tr>
+  <?php
+  }
+   ?>
+</table>
+
+<div class="w3-container w3-section"></div>
+<?php
+//if statement
+}
+?>
+
 
 
 <div class="w3-container w3-teal w3-section w3-mobile">
