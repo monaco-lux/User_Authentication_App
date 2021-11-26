@@ -31,7 +31,7 @@ session_start();
 
 
 <div class="w3-container w3-mobile">
-  <form action='code/php/includes/changePassword.inc.php' method='post'>
+  <form action='code/php/includes/recoverPassword.inc.php' method='post'>
 
     <label for="userName"><b>Username</b></label>
     <input
