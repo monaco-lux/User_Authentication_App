@@ -22,7 +22,7 @@ session_start();
 <div class="w3-bar w3-black">
  <!-- <a href="index.php" class="w3-bar-item w3-button">Home</a> -->
  <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
- <a href="" class="w3-bar-item w3-button w3-right"><?php echo "Hello: ".ucfirst($_SESSION['username']);?></a>
+ <a href="" class="w3-bar-item w3-button w3-right"><?php echo ucfirst($_SESSION['username'])." | ".strtoupper($_SESSION['role']);?></a>
 </div>
 
 <div class="w3-container w3-section w3-teal w3-mobile">
