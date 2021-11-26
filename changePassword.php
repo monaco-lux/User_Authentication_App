@@ -9,6 +9,7 @@ session_start();
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Local Library CMS: Dashboard</title>
+<link rel="icon" type="image/x-icon" href="assets/img/book_favicon.png">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
@@ -35,21 +36,11 @@ if(isset($_SESSION['userid']))
   <div class="w3-section w3-container w3-mobile">
     <form action='code/php/includes/signUpWriteBack.inc.php' method='post'>
 
-      <label for="userName"><b>Username</b></label>
-      <input
-        type="text"
-        name="userName"
-        id="userName"
-        autofocus required
-        placeholder="Please enter only numbers and letters"
-        class="w3-input w3-border"
-      >
-
-      <label for="password"><b>Password</b></label>
+      <label for="newPassword"><b>New Password</b></label>
       <input
         type="password"
-        name='password'
-        id="password"
+        name='newPassword'
+        id="newPassword"
         required
         class="w3-input w3-border"
     <div class="w3-section w3-margin-bottom">
