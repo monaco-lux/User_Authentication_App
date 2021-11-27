@@ -56,6 +56,7 @@ if($_SESSION['role'] == "member" || $_SESSION['role'] == "librarian")
 <table class="w3-table w3-bordered w3-mobile">
   <tr>
     <th><b>Book</b></th>
+    <th><b>Author</b></th>
     <th><b>Year</b></th>
     <th><b>Genre</b></th>
     <th><b>Age Group</b></th>
@@ -66,6 +67,7 @@ if($_SESSION['role'] == "member" || $_SESSION['role'] == "librarian")
   ?>
   <tr>
     <td><?php echo $books['book_name']; ?></td>
+    <td><?php echo $books['author_name']; ?></td>
     <td><?php echo $books['year'];?></td>
     <td><?php echo $books['genre']; ?></td>
     <td><?php echo $books['age_group']?></td>
@@ -80,7 +82,6 @@ if($_SESSION['role'] == "member" || $_SESSION['role'] == "librarian")
 //if statement
 }
 ?>
-
 
 
 <div class="w3-container w3-teal w3-section w3-mobile">

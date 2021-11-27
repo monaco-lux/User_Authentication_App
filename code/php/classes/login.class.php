@@ -57,7 +57,7 @@ class Login extends DbH
       $_SESSION['role'] = $user[0]['role'];
       $stmt = null;
 
-      $stmt = $this->connect()->prepare('SELECT * FROM library; ');
+      $stmt = $this->connect()->prepare('SELECT DISTINCT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name FROM library as L JOIN authors AS A ON A.book_id = L.book_id;');
       if(!$stmt->execute([])) // if query doesnt work throw error
       {
         $stmt = null;
