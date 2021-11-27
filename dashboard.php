@@ -81,6 +81,34 @@ if($_SESSION['role'] == "member" || $_SESSION['role'] == "librarian")
 <?php
 //if statement
 }
+if($_SESSION['role'] == "librarian")
+{
+  ?>
+  <div class="w3-container w3-section w3-mobile">
+    <h3><u>Authors</u></h3>
+  </div>
+  <table class="w3-table w3-bordered w3-mobile">
+    <tr>
+      <th><b>Author</b></th>
+      <th><b>Age</b></th>
+      <th><b>Genre</b></th>
+    </tr>
+    <?php
+    foreach($_SESSION['authors'] as $authors)
+    {
+    ?>
+    <tr>
+      <td><?php echo $authors['author_name']; ?></td>
+      <td><?php echo $authors['age'];?></td>
+      <td><?php echo $authors['genre']; ?></td>
+    </tr>
+    <?php
+    }
+     ?>
+  </table>
+<?php
+//libraruan IF
+}
 ?>
 
 

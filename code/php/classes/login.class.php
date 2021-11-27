@@ -57,6 +57,7 @@ class Login extends DbH
       $_SESSION['role'] = $user[0]['role'];
       $stmt = null;
 
+      // fetch the list of books and authors so that it displays on dashboard
       $stmt = $this->connect()->prepare('SELECT DISTINCT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name FROM library as L JOIN authors AS A ON A.book_id = L.book_id;');
       if(!$stmt->execute([])) // if query doesnt work throw error
       {
@@ -72,7 +73,26 @@ class Login extends DbH
       }
       $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
       $_SESSION['books'] = $books;
+      $stmt=null;
 
+      // fetch all distinct authors for librarians
+      $stmt = $this->connect()->prepare('SELECT DISTINCT * from authors;;');
+      if(!$stmt->execute([])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../index.php?error=couldnotgetbooks");
+        exit();
+      }
+      if($stmt->rowCount() == 0) // if no results, throw error
+      {
+        $stmt = null;
+        header("Location: ../../../index.php?error=nobooks");
+        exit();
+      }
+
+      //fetch all data as an associative array and store in session value
+      $authors = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $_SESSION['authors'] = $authors;
     }
 
 
