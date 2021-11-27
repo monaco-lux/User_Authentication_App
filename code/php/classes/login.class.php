@@ -57,7 +57,7 @@ class Login extends DbH
       $_SESSION['role'] = $user[0]['role'];
       $stmt = null;
 
-      $stmt = $this->connect()->prepare('SELECT * FROM library LIMIT 10; ');
+      $stmt = $this->connect()->prepare('SELECT * FROM library; ');
       if(!$stmt->execute([])) // if query doesnt work throw error
       {
         $stmt = null;
