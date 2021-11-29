@@ -22,7 +22,10 @@ session_start();
 <div class="w3-bar w3-black">
   <a href="dashboard.php" class="w3-bar-item w3-button">Dashboard</a>
  <a href="books.php" class="w3-bar-item w3-button">Books</a>
- <a href="authors.php" class="w3-bar-item w3-button">Authors</a>
+ <!-- Only Librarians should be allowed to see the author output -->
+ <?php if($_SESSION['role'] == "librarian") :?>
+   <a href="authors.php" class="w3-bar-item w3-button">Authors</a>
+<?php endif; ?>
  <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
  <a href="" class="w3-bar-item w3-button w3-right"><?php echo ucfirst($_SESSION['username'])." | ".strtoupper($_SESSION['role']);?></a>
 </div>
