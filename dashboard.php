@@ -29,6 +29,9 @@ session_start();
 <?php if($_SESSION['role'] == "librarian") :?>
   <a href="crudBooks.php" class="w3-bar-item w3-button">Records: Books</a>
 <?php endif; ?>
+<?php if($_SESSION['role'] == "librarian") :?>
+  <a href="crudAuthors.php" class="w3-bar-item w3-button">Records: Authors</a>
+<?php endif; ?>
  <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
  <a href="" class="w3-bar-item w3-button w3-right"><?php echo ucfirst($_SESSION['username'])." | ".strtoupper($_SESSION['role']);?></a>
 </div>

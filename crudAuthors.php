@@ -36,7 +36,7 @@ session_start();
 </div>
 
 <div class="w3-container w3-section w3-teal w3-mobile">
-    <h2>List of Authors</h2>
+    <h2>Create, Update, Add or Delete Author records</h2>
 </div>
 
 <?php
@@ -49,53 +49,56 @@ if(!isset($_SESSION['userid']))
 }
 ?>
 
-<div class="w3-container w3-section w3-mobile">
-  <h3><u>Author Search</u></h3>
-</div>
-<form class="w3-container">
-  <label for="searchAuthor">Search for an Author</label>
+<div class="w3-container w3-mobile">
+  <form action="" method="post">
+    <div class="w3-row-padding">
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label for="authorName"><b>Author Name</b></label>
+        <input
+          type="text"
+          name="authorName"
+          id="authorName"
+          class="w3-input w3-border"
+        >
+    </div>
+
+  <div class="w3-third">
+    <label for="age"><b>Age</b></label>
+    <input
+      type="number"
+      name="age"
+      id="age"
+      placeholder="If dead: put 0"
+      class="w3-input w3-border"
+    >
+  </div>
+  <div class="w3-third">
+    <label for="genre"><b>Genre</b></label>
+    <input
+      type="text"
+      name="genre"
+      id="genre"
+      class="w3-input w3-border"
+    >
+
+  </div>
+  <div class="w3-third">
+  <label for="bookId"><b>Book ID</b></label>
   <input
     type="text"
-    name='searchAuthor'
-    id="searchAuthor"
+    name="bookId"
+    id="bookid"
     class="w3-input w3-border"
   >
-
-  <button type="submit" class="w3-button w3-black w3-hover-green w3-section">Search 🔍</button>
-</form>
-
-<div class="w3-container w3-section"></div>
-<?php
-if($_SESSION['role'] == "librarian")
-{
-  ?>
-  <div class="w3-container w3-section w3-mobile">
-    <h3><u>Authors</u></h3>
   </div>
-  <table class="w3-table w3-bordered w3-mobile">
-    <tr>
-      <th><b>Author</b></th>
-      <th><b>Age</b></th>
-      <th><b>Genre</b></th>
-    </tr>
-    <?php
-    foreach($_SESSION['authors'] as $authors)
-    {
-    ?>
-    <tr>
-      <td><?php echo $authors['author_name']; ?></td>
-      <td><?php echo $authors['age'];?></td>
-      <td><?php echo $authors['genre']; ?></td>
-    </tr>
-    <?php
-    }
-     ?>
-  </table>
-<?php
-//libraruan IF
-}
-?>
+  </div>
 
+  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-teal" id="add">Add new Record 🆕</button>
+  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-green" id="update">Update Record ♻️</button>
+  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-red" id="delete">Delete Record ❌</button>
+  </form>
+</div>
 
 <div class="w3-container w3-teal w3-section w3-mobile">
   <h5>Local Library CMS™ </h5>

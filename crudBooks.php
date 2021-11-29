@@ -28,12 +28,15 @@ session_start();
 <?php if($_SESSION['role'] == "librarian") :?>
   <a href="crudBooks.php" class="w3-bar-item w3-button">Records: Books</a>
 <?php endif; ?>
+<?php if($_SESSION['role'] == "librarian") :?>
+  <a href="crudAuthors.php" class="w3-bar-item w3-button">Records: Authors</a>
+<?php endif; ?>
  <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
  <a href="" class="w3-bar-item w3-button w3-right"><?php echo ucfirst($_SESSION['username'])." | ".strtoupper($_SESSION['role']);?></a>
 </div>
 
 <div class="w3-container w3-section w3-teal w3-mobile">
-    <h2>Create, Update, Add or Delete new records</h2>
+    <h2>Create, Update, Add or Delete Book records</h2>
 </div>
 
 <?php
