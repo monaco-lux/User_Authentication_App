@@ -22,7 +22,9 @@ session_start();
 <div class="w3-bar w3-black">
   <a href="dashboard.php" class="w3-bar-item w3-button">Dashboard</a>
  <a href="books.php" class="w3-bar-item w3-button">Books</a>
- <a href="authors.php" class="w3-bar-item w3-button">Authors</a>
+ <?php if($_SESSION['role'] == "librarian") :?>
+   <a href="authors.php" class="w3-bar-item w3-button">Authors</a>
+<?php endif; ?>
  <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
  <a href="" class="w3-bar-item w3-button w3-right"><?php echo ucfirst($_SESSION['username'])." | ".strtoupper($_SESSION['role']);?></a>
 </div>
@@ -35,8 +37,26 @@ session_start();
 if(!isset($_SESSION['userid']))
 {
   header("Location: index.php?error=notallowed");
+} elseif($_SESSION['role'] == "member")
+{
+  header("Location: dashboard.php?error=notallowed");
 }
 ?>
+
+<div class="w3-container w3-section w3-mobile">
+  <h3><u>Author Search</u></h3>
+</div>
+<form class="w3-container">
+  <label for="searchAuthor">Search for an Author</label>
+  <input
+    type="text"
+    name='searchAuthor'
+    id="searchAuthor"
+    class="w3-input w3-border"
+  >
+
+  <button type="submit" class="w3-button w3-black w3-hover-green w3-section">Search 🔍</button>
+</form>
 
 <div class="w3-container w3-section"></div>
 <?php
