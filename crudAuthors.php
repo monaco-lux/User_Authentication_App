@@ -84,13 +84,14 @@ if(!isset($_SESSION['userid']))
 
   </div>
   <div class="w3-third">
-  <label for="bookId"><b>Book ID</b></label>
-  <input
-    type="text"
-    name="bookId"
-    id="bookid"
-    class="w3-input w3-border"
-  >
+    <label for="bookId"><b>Book related to Author</b></label>
+    <select class="w3-select" name="bookId" id="bookId" required>
+     <option value="" disabled selected>Choose your option</option>
+     <!-- Outputs books and selects based on id for easier updating of database -->
+     <?php foreach($_SESSION['books'] as $books){ ?>
+      <option value="<?php echo $books['book_id'];?>"><?php echo $books['book_name'];     ?></option>
+    <?php } ?>
+   </select>
   </div>
   </div>
 
