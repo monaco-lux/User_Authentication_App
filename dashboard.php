@@ -20,7 +20,9 @@ session_start();
 </div>
 
 <div class="w3-bar w3-black">
- <!-- <a href="index.php" class="w3-bar-item w3-button">Home</a> -->
+  <a href="dashboard.php" class="w3-bar-item w3-button">Dashboard</a>
+ <a href="books.php" class="w3-bar-item w3-button">Books</a>
+ <a href="authors.php" class="w3-bar-item w3-button">Authors</a>
  <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
  <a href="" class="w3-bar-item w3-button w3-right"><?php echo ucfirst($_SESSION['username'])." | ".strtoupper($_SESSION['role']);?></a>
 </div>
@@ -34,81 +36,7 @@ if(!isset($_SESSION['userid']))
 {
   header("Location: index.php?error=notallowed");
 }
-
-if($_SESSION['role'] == "member" || $_SESSION['role'] == "librarian")
-{
-
-?>
-<div class="w3-container w3-section w3-mobile">
-  <h3><u>Books Available</u></h3>
-</div>
-<form class="w3-container">
-  <label for="searchBook">Search for a book</label>
-  <input
-    type="text"
-    name='searchBook'
-    id="searchBook"
-    class="w3-input w3-border"
-  >
-
-  <button type="submit" class="w3-button w3-black w3-hover-green w3-section">Search 🔍</button>
-</form>
-<table class="w3-table w3-bordered w3-mobile">
-  <tr>
-    <th><b>Book</b></th>
-    <th><b>Author</b></th>
-    <th><b>Year</b></th>
-    <th><b>Genre</b></th>
-    <th><b>Age Group</b></th>
-  </tr>
-  <?php
-  foreach($_SESSION['books'] as $books)
-  {
-  ?>
-  <tr>
-    <td><?php echo $books['book_name']; ?></td>
-    <td><?php echo $books['author_name']; ?></td>
-    <td><?php echo $books['year'];?></td>
-    <td><?php echo $books['genre']; ?></td>
-    <td><?php echo $books['age_group']?></td>
-  </tr>
-  <?php
-  }
-   ?>
-</table>
-
-<div class="w3-container w3-section"></div>
-<?php
-//if statement
-}
-if($_SESSION['role'] == "librarian")
-{
-  ?>
-  <div class="w3-container w3-section w3-mobile">
-    <h3><u>Authors</u></h3>
-  </div>
-  <table class="w3-table w3-bordered w3-mobile">
-    <tr>
-      <th><b>Author</b></th>
-      <th><b>Age</b></th>
-      <th><b>Genre</b></th>
-    </tr>
-    <?php
-    foreach($_SESSION['authors'] as $authors)
-    {
-    ?>
-    <tr>
-      <td><?php echo $authors['author_name']; ?></td>
-      <td><?php echo $authors['age'];?></td>
-      <td><?php echo $authors['genre']; ?></td>
-    </tr>
-    <?php
-    }
-     ?>
-  </table>
-<?php
-//libraruan IF
-}
+echo "There's nothing here right now.";
 ?>
 
 
