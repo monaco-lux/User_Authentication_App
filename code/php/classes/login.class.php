@@ -76,7 +76,7 @@ class Login extends DbH
       $stmt=null;
 
       // fetch all distinct authors for librarians
-      $stmt = $this->connect()->prepare('SELECT DISTINCT * from authors;;');
+      $stmt = $this->connect()->prepare('SELECT DISTINCT * from authors;');
       if(!$stmt->execute([])) // if query doesnt work throw error
       {
         $stmt = null;
@@ -93,6 +93,18 @@ class Login extends DbH
       //fetch all data as an associative array and store in session value
       $authors = $stmt->fetchAll(PDO::FETCH_ASSOC);
       $_SESSION['authors'] = $authors;
+      $stmt=null;
+
+      // write to session log with login / logout time and username with session id
+      $loginTime = "Login: ".date('d-m-y h:i:s');
+      $stmt = $this->connect()->prepare('INSERT INTO session_login (username,session_id,login_logout) VALUES(?,?,?) ;');
+      if(!$stmt->execute([$uid,session_id(),$loginTime])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../index.php?error=couldnotupdatesession");
+        exit();
+      }
+
     }
 
 
