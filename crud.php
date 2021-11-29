@@ -33,7 +33,7 @@ session_start();
 </div>
 
 <div class="w3-container w3-section w3-teal w3-mobile">
-    <h2>List of Authors</h2>
+    <h2>Create, Update, Add or Delete new records</h2>
 </div>
 
 <?php
@@ -45,54 +45,6 @@ if(!isset($_SESSION['userid']))
   header("Location: dashboard.php?error=notallowed");
 }
 ?>
-
-<div class="w3-container w3-section w3-mobile">
-  <h3><u>Author Search</u></h3>
-</div>
-<form class="w3-container">
-  <label for="searchAuthor">Search for an Author</label>
-  <input
-    type="text"
-    name='searchAuthor'
-    id="searchAuthor"
-    class="w3-input w3-border"
-  >
-
-  <button type="submit" class="w3-button w3-black w3-hover-green w3-section">Search 🔍</button>
-</form>
-
-<div class="w3-container w3-section"></div>
-<?php
-if($_SESSION['role'] == "librarian")
-{
-  ?>
-  <div class="w3-container w3-section w3-mobile">
-    <h3><u>Authors</u></h3>
-  </div>
-  <table class="w3-table w3-bordered w3-mobile">
-    <tr>
-      <th><b>Author</b></th>
-      <th><b>Age</b></th>
-      <th><b>Genre</b></th>
-    </tr>
-    <?php
-    foreach($_SESSION['authors'] as $authors)
-    {
-    ?>
-    <tr>
-      <td><?php echo $authors['author_name']; ?></td>
-      <td><?php echo $authors['age'];?></td>
-      <td><?php echo $authors['genre']; ?></td>
-    </tr>
-    <?php
-    }
-     ?>
-  </table>
-<?php
-//libraruan IF
-}
-?>
-
 
 <div class="w3-container w3-teal w3-section w3-mobile">
   <h5>Local Library CMS™ </h5>
