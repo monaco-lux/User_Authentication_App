@@ -26,7 +26,7 @@ session_start();
    <a href="authors.php" class="w3-bar-item w3-button">Authors</a>
 <?php endif; ?>
 <?php if($_SESSION['role'] == "librarian") :?>
-  <a href="crud.php" class="w3-bar-item w3-button">Records</a>
+  <a href="crudBooks.php" class="w3-bar-item w3-button">Records: Books</a>
 <?php endif; ?>
  <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
  <a href="" class="w3-bar-item w3-button w3-right"><?php echo ucfirst($_SESSION['username'])." | ".strtoupper($_SESSION['role']);?></a>
@@ -45,6 +45,56 @@ if(!isset($_SESSION['userid']))
   header("Location: dashboard.php?error=notallowed");
 }
 ?>
+
+<div class="w3-container w3-mobile">
+  <form action="" method="post">
+    <div class="w3-row-padding">
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label for="bookName"><b>Book Name</b></label>
+        <input
+          type="text"
+          name="bookName"
+          id="bookName"
+          class="w3-input w3-border"
+        >
+    </div>
+
+  <div class="w3-third">
+    <label for="year"><b>Year</b></label>
+    <input
+      type="number"
+      name="year"
+      id="year"
+      class="w3-input w3-border"
+    >
+  </div>
+  <div class="w3-third">
+    <label for="ageGroup"><b>Age Group</b></label>
+    <input
+      type="text"
+      name="ageGroup"
+      id="ageGroup"
+      class="w3-input w3-border"
+    >
+
+  </div>
+  <div class="w3-third">
+  <label for="genre"><b>Genre</b></label>
+  <input
+    type="text"
+    name="genre"
+    id="genre"
+    class="w3-input w3-border"
+  >
+  </div>
+  </div>
+
+  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-teal" id="add">Add new Record 🆕</button>
+  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-green" id="update">Update Record ♻️</button>
+  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-red" id="delete">Delete Record ❌</button>
+  </form>
+</div>
 
 <div class="w3-container w3-teal w3-section w3-mobile">
   <h5>Local Library CMS™ </h5>
