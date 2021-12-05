@@ -50,7 +50,7 @@ session_start();
 </div>
 
 <div class="w3-container w3-section w3-teal w3-mobile">
-    <h2>Create, Update, Add or Delete Book records</h2>
+    <h2>Update Book</h2>
 </div>
 
 <?php
@@ -67,6 +67,17 @@ if(!isset($_SESSION['userid']))
   <form action="" method="post">
     <div class="w3-row-padding">
     <div class="w3-row-padding">
+      <div class="w3-third">
+        <label for="bookId"><b>Select book record to update</b></label>
+        <select class="w3-select" name="bookId" id="bookId" required>
+         <option value="" disabled selected>Choose your option</option>
+         <!-- Outputs books and selects based on id for easier updating of database -->
+         <?php foreach($_SESSION['books'] as $books){ ?>
+          <option value="<?php echo $books['book_id'];?>"><?php echo $books['book_name']." | ".$books['author_name'];     ?></option>
+          <option value="empty" disabled></option>
+        <?php } ?>
+       </select>
+      </div>
       <div class="w3-third">
         <label for="bookName"><b>Book Name</b></label>
         <input
@@ -107,9 +118,8 @@ if(!isset($_SESSION['userid']))
   </div>
   </div>
 
-  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-teal" id="add">Add new Record 🆕</button>
   <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-green" id="update">Update Record ♻️</button>
-  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-red" id="delete">Delete Record ❌</button>
+  <button type="reset" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-yellow" id="add">Sweep Form 🧹</button>
   </form>
 </div>
 
