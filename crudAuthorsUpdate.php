@@ -68,6 +68,17 @@ if(!isset($_SESSION['userid']))
     <div class="w3-row-padding">
     <div class="w3-row-padding">
       <div class="w3-third">
+        <label for="bookId"><b>Select Author record to update</b></label>
+        <select class="w3-select" name="bookId" id="bookId" required>
+         <option value="" disabled selected>Choose your option</option>
+         <!-- Outputs books and selects based on id for easier updating of database -->
+         <?php foreach($_SESSION['books'] as $books){ ?>
+          <option value="<?php echo $books['author_id'];?>"><?php echo $books['author_name']." | Related to: ".$books['book_name'];     ?></option>
+          <option value="empty" disabled></option>
+        <?php } ?>
+       </select>
+      </div>
+      <div class="w3-third">
         <label for="authorName"><b>Author Name</b></label>
         <input
           type="text"
@@ -75,18 +86,18 @@ if(!isset($_SESSION['userid']))
           id="authorName"
           class="w3-input w3-border"
         >
-    </div>
+      </div>
 
-  <div class="w3-third">
-    <label for="age"><b>Age</b></label>
-    <input
-      type="number"
-      name="age"
-      id="age"
-      placeholder="If dead: put 0"
-      class="w3-input w3-border"
-    >
-  </div>
+      <div class="w3-third">
+        <label for="age"><b>Age</b></label>
+        <input
+          type="number"
+          name="age"
+          id="age"
+          placeholder="If dead: put 0"
+          class="w3-input w3-border"
+        >
+    </div>
   <div class="w3-third">
     <label for="genre"><b>Genre</b></label>
     <input
