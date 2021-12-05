@@ -58,7 +58,7 @@ class Login extends DbH
       $stmt = null;
 
       // fetch the list of books and authors so that it displays on dashboard
-      $stmt = $this->connect()->prepare('SELECT DISTINCT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name FROM library as L JOIN authors AS A ON A.book_id = L.book_id;');
+      $stmt = $this->connect()->prepare('SELECT DISTINCT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name,A.author_id FROM library as L JOIN authors AS A ON A.book_id = L.book_id;');
       if(!$stmt->execute([])) // if query doesnt work throw error
       {
         $stmt = null;
