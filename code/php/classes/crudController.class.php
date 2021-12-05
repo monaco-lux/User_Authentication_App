@@ -53,7 +53,7 @@ class CRUDController extends CRUD
 
   public function updateAuthor()
   {
-    $this->doUpdateAuthor($this->authorId,$this->author,$this->genre,$this->bookId);
+    $this->doUpdateAuthor($this->authorId,$this->author,$this->age,$this->genre,$this->bookId);
   }
 
 
