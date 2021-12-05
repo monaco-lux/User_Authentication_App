@@ -17,7 +17,7 @@ class CRUD extends DbH
 
     $stmt = null;
 
-    //update books
+    //update books everytime the statement is executed so that user can see updated values
 
     $stmt = $this->connect()->prepare('SELECT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name,A.author_id FROM library as L LEFT JOIN authors AS A ON A.book_id = L.book_id;');
     if(!$stmt->execute([])) // if query doesnt work throw error
@@ -51,9 +51,26 @@ class CRUD extends DbH
       exit();
     }
 
+    $stmt = null;
+
+    //update books everytime the statement is executed so that user can see updated values
+
+    $stmt = $this->connect()->prepare('SELECT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name,A.author_id FROM library as L LEFT JOIN authors AS A ON A.book_id = L.book_id;');
+    if(!$stmt->execute([])) // if query doesnt work throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=couldnotgetbooks");
+      exit();
+    }
+    if($stmt->rowCount() == 0) // if no results, throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=nobooks");
+      exit();
+    }
     $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $_SESSION['books'] = $books;
-    //set stmt to null
+
     $stmt = null;
   }
 
@@ -61,7 +78,7 @@ class CRUD extends DbH
   {
 
     //update record based on id
-    if(isset($book) && isset($year) && isset($ageGroup) && isset($genre))
+    if(!empty($book) && !empty($year) && !empty($ageGroup) && !empty($genre))
     {
       $stmt = $this->connect()->prepare('UPDATE library SET book_name = ?, year = ?, genre = ?, age_group = ? WHERE book_id = ?;');
       if(!$stmt->execute([$book,$year,$genre,$ageGroup,$bookId])) // if query doesnt work throw error
@@ -70,9 +87,10 @@ class CRUD extends DbH
         header("Location: ../../../crudBooksUpdate.php?error=fullBookUpdateFailed");
         exit();
       }
+
     }
 
-    if(isset($book) && isset($year) && !isset($ageGroup) && isset($genre))
+    if(!empty($book) && !empty($year) && empty($ageGroup) && !empty($genre))
     {
       $stmt = $this->connect()->prepare('UPDATE library SET book_name = ?, year = ?, genre = ? WHERE book_id = ?;');
       if(!$stmt->execute([$book,$year,$genre,$bookId])) // if query doesnt work throw error
@@ -83,7 +101,7 @@ class CRUD extends DbH
       }
     }
 
-    if(isset($book) && isset($year) && !isset($ageGroup) && !isset($genre))
+    if(!empty($book) && !empty($year) && empty($ageGroup) && empty($genre))
     {
       $stmt = $this->connect()->prepare('UPDATE library SET book_name = ?, year = ? WHERE book_id = ?;');
       if(!$stmt->execute([$book,$year,$bookId])) // if query doesnt work throw error
@@ -94,7 +112,7 @@ class CRUD extends DbH
       }
     }
 
-    if(isset($book) && !isset($year) && !isset($ageGroup) && !isset($genre))
+    if(!empty($book) && empty($year) && empty($ageGroup) && empty($genre))
     {
       $stmt = $this->connect()->prepare('UPDATE library SET book_name = ? WHERE book_id = ?;');
       if(!$stmt->execute([$book,$bookId])) // if query doesnt work throw error
@@ -105,9 +123,26 @@ class CRUD extends DbH
       }
     }
 
+    $stmt = null;
+
+    //update books everytime the statement is executed so that user can see updated values
+
+    $stmt = $this->connect()->prepare('SELECT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name,A.author_id FROM library as L LEFT JOIN authors AS A ON A.book_id = L.book_id;');
+    if(!$stmt->execute([])) // if query doesnt work throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=couldnotgetbooks");
+      exit();
+    }
+    if($stmt->rowCount() == 0) // if no results, throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=nobooks");
+      exit();
+    }
     $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $_SESSION['books'] = $books;
-    //set stmt to null
+
     $stmt = null;
   }
 
@@ -123,8 +158,27 @@ class CRUD extends DbH
       exit();
     }
 
-    //set stmt to null
     $stmt = null;
+    //update books everytime the statement is executed so that user can see updated values
+
+    $stmt = $this->connect()->prepare('SELECT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name,A.author_id FROM library as L LEFT JOIN authors AS A ON A.book_id = L.book_id;');
+    if(!$stmt->execute([])) // if query doesnt work throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=couldnotgetbooks");
+      exit();
+    }
+    if($stmt->rowCount() == 0) // if no results, throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=nobooks");
+      exit();
+    }
+    $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION['books'] = $books;
+
+    $stmt = null;
+    //set stmt to null
   }
 
   protected function doDeleteAuthor($authorId)
@@ -139,8 +193,27 @@ class CRUD extends DbH
       exit();
     }
 
-    //set stmt to null
     $stmt = null;
+    //update books everytime the statement is executed so that user can see updated values
+
+    $stmt = $this->connect()->prepare('SELECT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name,A.author_id FROM library as L LEFT JOIN authors AS A ON A.book_id = L.book_id;');
+    if(!$stmt->execute([])) // if query doesnt work throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=couldnotgetbooks");
+      exit();
+    }
+    if($stmt->rowCount() == 0) // if no results, throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=nobooks");
+      exit();
+    }
+    $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION['books'] = $books;
+
+    $stmt = null;
+    //set stmt to null
   }
 
   protected function doUpdateAuthor($authorId,$author,$age,$genre,$bookId)
@@ -148,7 +221,7 @@ class CRUD extends DbH
     // THIS NEEDS IF STATEMENTS UNCOMMENT WHEN READY
 
     //update record based on id
-    if(isset($author) && isset($age) && isset($genre) && isset($bookId))
+    if(!empty($author) && !empty($age) && !empty($genre) && !empty($bookId))
     {
       $stmt = $this->connect()->prepare('UPDATE authors SET author_name = ?, age = ?, genre = ?, book_id = ? WHERE author_id = ?;');
       if(!$stmt->execute([$author,$age,$genre,$bookId,$authorId])) // if query doesnt work throw error
@@ -159,7 +232,7 @@ class CRUD extends DbH
       }
     }
 
-    if(isset($author) && isset($age) && isset($genre) && !isset($bookId))
+    if(!empty($author) && !empty($age) && !empty($genre) && empty($bookId))
     {
       $stmt = $this->connect()->prepare('UPDATE authors SET author_name = ?, age = ?, genre = ? WHERE author_id = ?;');
       if(!$stmt->execute([$author,$age,$genre,$authorId])) // if query doesnt work throw error
@@ -170,7 +243,7 @@ class CRUD extends DbH
       }
     }
 
-    if(isset($author) && isset($age) && !isset($genre) && !isset($bookId))
+    if(!empty($author) && !empty($age) && empty($genre) && empty($bookId))
     {
       $stmt = $this->connect()->prepare('UPDATE authors SET author_name = ?, age = ? WHERE author_id = ?;');
       if(!$stmt->execute([$author,$age,$authorId])) // if query doesnt work throw error
@@ -181,7 +254,7 @@ class CRUD extends DbH
       }
     }
 
-    if(isset($author) && !isset($age) && !isset($genre) && !isset($bookId))
+    if(!empty($author) && empty($age) && empty($genre) && empty($bookId))
     {
       $stmt = $this->connect()->prepare('UPDATE authors SET author_name = ? WHERE author_id = ?;');
       if(!$stmt->execute([$author,$authorId])) // if query doesnt work throw error
@@ -192,8 +265,27 @@ class CRUD extends DbH
       }
     }
 
-    //set stmt to null
     $stmt = null;
+    //update books everytime the statement is executed so that user can see updated values
+
+    $stmt = $this->connect()->prepare('SELECT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name,A.author_id FROM library as L LEFT JOIN authors AS A ON A.book_id = L.book_id;');
+    if(!$stmt->execute([])) // if query doesnt work throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=couldnotgetbooks");
+      exit();
+    }
+    if($stmt->rowCount() == 0) // if no results, throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=nobooks");
+      exit();
+    }
+    $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION['books'] = $books;
+
+    $stmt = null;
+    //set stmt to null
   }
 
 }
