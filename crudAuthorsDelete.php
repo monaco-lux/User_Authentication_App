@@ -65,53 +65,18 @@ if(!isset($_SESSION['userid']))
 
 <div class="w3-container w3-mobile">
   <form action="" method="post">
-    <div class="w3-row-padding">
-    <div class="w3-row-padding">
-      <div class="w3-third">
-        <label for="authorName"><b>Author Name</b></label>
-        <input
-          type="text"
-          name="authorName"
-          id="authorName"
-          class="w3-input w3-border"
-        >
-    </div>
-
-  <div class="w3-third">
-    <label for="age"><b>Age</b></label>
-    <input
-      type="number"
-      name="age"
-      id="age"
-      placeholder="If dead: put 0"
-      class="w3-input w3-border"
-    >
-  </div>
-  <div class="w3-third">
-    <label for="genre"><b>Genre</b></label>
-    <input
-      type="text"
-      name="genre"
-      id="genre"
-      class="w3-input w3-border"
-    >
-
-  </div>
-  <div class="w3-third">
-    <label for="bookId"><b>Book related to Author</b></label>
+    <label for="bookId"><b>Select an Author to delete</b></label>
     <select class="w3-select" name="bookId" id="bookId" required>
      <option value="" disabled selected>Choose your option</option>
      <!-- Outputs books and selects based on id for easier updating of database -->
      <?php foreach($_SESSION['books'] as $books){ ?>
-      <option value="<?php echo $books['book_id'];?>"><?php echo $books['book_name'];     ?></option>
+      <option value="<?php echo $books['author_id'];?>"><?php echo $books['author_name'];     ?></option>
+      <option value="empty" disabled></option>
     <?php } ?>
    </select>
-  </div>
-  </div>
 
-  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-teal" id="add">Add new Record 🆕</button>
-  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-green" id="update">Update Record ♻️</button>
-  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-red" id="delete">Delete Record ❌</button>
+  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-green" id="updateAuthor">Update Record ♻️</button>
+  <button type="reset" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-yellow" id="add">Sweep Form 🧹</button>
   </form>
 </div>
 
