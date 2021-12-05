@@ -50,7 +50,7 @@ session_start();
 </div>
 
 <div class="w3-container w3-section w3-teal w3-mobile">
-    <h2>Create, Update, Add or Delete Author records</h2>
+    <h2>Add Author</h2>
 </div>
 
 <?php
@@ -109,9 +109,8 @@ if(!isset($_SESSION['userid']))
   </div>
   </div>
 
-  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-teal" id="add">Add new Record 🆕</button>
-  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-green" id="update">Update Record ♻️</button>
-  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-red" id="delete">Delete Record ❌</button>
+  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-teal" id="addAuthor">Add new Record 🆕</button>
+  <button type="reset" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-yellow" id="add">Sweep Form 🧹</button>
   </form>
 </div>
 
