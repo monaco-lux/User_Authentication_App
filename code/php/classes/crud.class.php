@@ -37,20 +37,54 @@ class CRUD extends DbH
 
   protected function doUpdateBook($bookId,$book,$year,$ageGroup,$genre)
   {
-    // THIS NEEDS IF STATEMENTS UNCOMMENT WHEN READY
 
-    //delete record based on id
-    /*$stmt = $this->connect()->prepare('DELETE FROM library WHERE book_id = ?;');
-
-    if(!$stmt->execute([$bookId])) // if query doesnt work throw error
+    //update record based on id
+    if(isset($book) && isset($year) && isset($ageGroup) && isset($genre))
     {
-      $stmt = null;
-      header("Location: ../../../crudBooks.php?error=bookDeleteFailed");
-      exit();
+      $stmt = $this->connect()->prepare('UPDATE library SET book_name = ?, year = ?, genre = ?, age_group = ? WHERE book_id = ?;');
+      if(!$stmt->execute([$book,$year,$genre,$ageGroup,$bookId])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../crudBooksUpdate.php?error=fullBookUpdateFailed");
+        exit();
+      }
+    }
+
+    if(isset($book) && isset($year) && !isset($ageGroup) && isset($genre))
+    {
+      $stmt = $this->connect()->prepare('UPDATE library SET book_name = ?, year = ?, genre = ? WHERE book_id = ?;');
+      if(!$stmt->execute([$book,$year,$genre,$bookId])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../crudBooksUpdate.php?error=partBookUpdateFailed");
+        exit();
+      }
+    }
+
+    if(isset($book) && isset($year) && !isset($ageGroup) && !isset($genre))
+    {
+      $stmt = $this->connect()->prepare('UPDATE library SET book_name = ?, year = ? WHERE book_id = ?;');
+      if(!$stmt->execute([$book,$year,$bookId])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../crudBooksUpdate.php?error=partBookUpdateFailed");
+        exit();
+      }
+    }
+
+    if(isset($book) && !isset($year) && !isset($ageGroup) && !isset($genre))
+    {
+      $stmt = $this->connect()->prepare('UPDATE library SET book_name = ? WHERE book_id = ?;');
+      if(!$stmt->execute([$book,$bookId])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../crudBooksUpdate.php?error=partBookUpdateFailed");
+        exit();
+      }
     }
 
     //set stmt to null
-    $stmt = null;*/
+    $stmt = null;
   }
 
   protected function doAddAuthor($author,$age,$genre,$bookId)
@@ -61,7 +95,7 @@ class CRUD extends DbH
     if(!$stmt->execute([$author,$age,$genre,$bookId])) // if query doesnt work throw error
     {
       $stmt = null;
-      header("Location: ../../../crudAuthors.php?error=authorInsertFailed");
+      header("Location: ../../../crudAuthorsAdd.php?error=authorInsertFailed");
       exit();
     }
 
@@ -77,7 +111,7 @@ class CRUD extends DbH
     if(!$stmt->execute([$authorId])) // if query doesnt work throw error
     {
       $stmt = null;
-      header("Location: ../../../crudAuthors.php?error=authorDeleteFailed");
+      header("Location: ../../../crudAuthorsDelete.php?error=authorDeleteFailed");
       exit();
     }
 
@@ -89,18 +123,53 @@ class CRUD extends DbH
   {
     // THIS NEEDS IF STATEMENTS UNCOMMENT WHEN READY
 
-    //delete record based on id
-    /*$stmt = $this->connect()->prepare('DELETE FROM library WHERE book_id = ?;');
-
-    if(!$stmt->execute([$bookId])) // if query doesnt work throw error
+    //update record based on id
+    if(isset($author) && isset($age) && isset($genre) && isset($bookId))
     {
-      $stmt = null;
-      header("Location: ../../../crudBooks.php?error=bookDeleteFailed");
-      exit();
+      $stmt = $this->connect()->prepare('UPDATE authors SET author_name = ?, age = ?, genre = ?, book_id = ? WHERE author_id = ?;');
+      if(!$stmt->execute([$author,$age,$genre,$bookId,$authorId])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../crudAuthorsUpdate.php?error=fullauthorUpdateFailed");
+        exit();
+      }
+    }
+
+    if(isset($author) && isset($age) && isset($genre) && !isset($bookId))
+    {
+      $stmt = $this->connect()->prepare('UPDATE authors SET author_name = ?, age = ?, genre = ? WHERE author_id = ?;');
+      if(!$stmt->execute([$author,$age,$genre,$authorId])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../crudAuthorsUpdate.php?error=almostauthorUpdateFailed");
+        exit();
+      }
+    }
+
+    if(isset($author) && isset($age) && !isset($genre) && !isset($bookId))
+    {
+      $stmt = $this->connect()->prepare('UPDATE authors SET author_name = ?, age = ? WHERE author_id = ?;');
+      if(!$stmt->execute([$author,$age,$authorId])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../crudAuthorsUpdate.php?error=almostauthorUpdateFailed");
+        exit();
+      }
+    }
+
+    if(isset($author) && !isset($age) && !isset($genre) && !isset($bookId))
+    {
+      $stmt = $this->connect()->prepare('UPDATE authors SET author_name = ? WHERE author_id = ?;');
+      if(!$stmt->execute([$author,$authorId])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../crudAuthorsUpdate.php?error=almostauthorUpdateFailed");
+        exit();
+      }
     }
 
     //set stmt to null
-    $stmt = null;*/
+    $stmt = null;
   }
 
 }

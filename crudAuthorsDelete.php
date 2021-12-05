@@ -75,7 +75,7 @@ if(!isset($_SESSION['userid']))
     <?php } ?>
    </select>
 
-  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-red" id="deleteAuthor">Delete Record ❌</button>
+  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-red" id="deleteAuthor" name="deleteAuthor">Delete Record ❌</button>
   <button type="reset" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-yellow" id="add">Sweep Form 🧹</button>
   </form>
 </div>

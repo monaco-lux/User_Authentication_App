@@ -2,8 +2,8 @@
 session_start();
 
 include "../classes/dbh.class.php";
-include "../classes/crudController.class.php";
 include "../classes/crud.class.php";
+include "../classes/crudController.class.php";
 
 // check incase someone navigates here and nothing is set
 
@@ -12,7 +12,7 @@ if(!isset($_POST['addBook']) ||
 !isset($_POST['updateBook']) ||
 !isset($_POST['addAuthor']) ||
 !isset($_POST['deleteAuthor']) ||
-!isset($_POST['updateAuthor']) ||)
+!isset($_POST['updateAuthor']))
 {
   header("Location: ../../../dashboard.php?error=notallowed");
 }
@@ -85,5 +85,7 @@ if(isset($_POST['updateAuthor']))
   $newCRUD->updateAuthor();
   header("Location: ../../../crudAuthorsUpdate.php?error=succesful");
 }
+
+echo "it comes through ok!";
 
 ?>

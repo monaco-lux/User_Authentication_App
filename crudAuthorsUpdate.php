@@ -120,7 +120,7 @@ if(!isset($_SESSION['userid']))
   </div>
   </div>
 
-  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-green" id="updateAuthor">Update Record ♻️</button>
+  <button type="submit" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-green" id="updateAuthor" name="updateAuthor">Update Record ♻️</button>
   <button type="reset" class="w3-button w3-black w3-padding-large w3-section w3-block w3-hover-yellow" id="add">Sweep Form 🧹</button>
   </form>
 </div>
