@@ -64,7 +64,7 @@ if(!isset($_SESSION['userid']))
 ?>
 
 <div class="w3-container w3-mobile">
-  <form action="" method="post">
+  <form action="code/php/includes/crud.inc.php" method="post">
     <div class="w3-row-padding">
     <div class="w3-row-padding">
       <div class="w3-third">

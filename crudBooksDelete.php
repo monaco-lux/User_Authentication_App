@@ -64,7 +64,7 @@ if(!isset($_SESSION['userid']))
 ?>
 
 <div class="w3-container w3-mobile">
-  <form action="" method="post">
+  <form action="code/php/includes/crud.inc.php" method="post">
 
       <label for="bookId"><b>Select book to delete</b></label>
       <select class="w3-select" name="bookId" id="bookId" required>
