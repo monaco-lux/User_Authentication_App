@@ -5,31 +5,19 @@ include "../classes/dbh.class.php";
 include "../classes/crud.class.php";
 include "../classes/crudController.class.php";
 
-// check incase someone navigates here and nothing is set
-
-if(!isset($_POST['addBook']) ||
-!isset($_POST['deleteBook']) ||
-!isset($_POST['updateBook']) ||
-!isset($_POST['addAuthor']) ||
-!isset($_POST['deleteAuthor']) ||
-!isset($_POST['updateAuthor']))
-{
-  header("Location: ../../../dashboard.php?error=notallowed");
-}
 
 $newCRUD = new CRUDController();
-
 
 
 // book controllers
 if(isset($_POST['addBook']))
 {
-  $newCRUD->$bookName = $_POST['BookName'];
+  $newCRUD->bookName = $_POST['bookName'];
   $newCRUD->year = $_POST['year'];
   $newCRUD->ageGroup = $_POST['ageGroup'];
   $newCRUD->genre = $_POST['genre'];
 
-  $newCrud->addBook();
+  $newCRUD->addBook();
   header("Location: ../../../crudBooksAdd.php?error=succesful");
 }
 
@@ -44,7 +32,7 @@ if(isset($_POST['deleteBook']))
 if(isset($_POST['updateBook']))
 {
   $newCRUD->bookId = $_POST['bookId'];
-  $newCRUD->$bookName = $_POST['BookName'];
+  $newCRUD->bookName = $_POST['bookName'];
   $newCRUD->year = $_POST['year'];
   $newCRUD->ageGroup = $_POST['ageGroup'];
   $newCRUD->genre = $_POST['genre'];
@@ -86,6 +74,6 @@ if(isset($_POST['updateAuthor']))
   header("Location: ../../../crudAuthorsUpdate.php?error=succesful");
 }
 
-echo "it comes through ok!";
+
 
 ?>

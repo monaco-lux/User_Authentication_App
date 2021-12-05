@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['userid']))
+{
+  header("Location: dashboard.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +32,7 @@
 <div class="w3-container w3-section w3-teal w3-mobile">
     <h2>Login</h2>
 </div>
+
 
 
 <div class="w3-container w3-mobile">

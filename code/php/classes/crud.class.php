@@ -15,8 +15,28 @@ class CRUD extends DbH
       exit();
     }
 
-    //set stmt to null
     $stmt = null;
+
+    //update books
+
+    $stmt = $this->connect()->prepare('SELECT L.book_id,L.book_name,L.year,L.genre,L.age_group,A.author_name,A.author_id FROM library as L LEFT JOIN authors AS A ON A.book_id = L.book_id;');
+    if(!$stmt->execute([])) // if query doesnt work throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=couldnotgetbooks");
+      exit();
+    }
+    if($stmt->rowCount() == 0) // if no results, throw error
+    {
+      $stmt = null;
+      header("Location: ../../../index.php?error=nobooks");
+      exit();
+    }
+    $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION['books'] = $books;
+
+    $stmt = null;
+
   }
 
   protected function doDeleteBook($bookId)
@@ -31,6 +51,8 @@ class CRUD extends DbH
       exit();
     }
 
+    $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION['books'] = $books;
     //set stmt to null
     $stmt = null;
   }
@@ -83,6 +105,8 @@ class CRUD extends DbH
       }
     }
 
+    $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION['books'] = $books;
     //set stmt to null
     $stmt = null;
   }
