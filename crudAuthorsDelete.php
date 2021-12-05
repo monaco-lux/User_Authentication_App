@@ -66,7 +66,7 @@ if(!isset($_SESSION['userid']))
 <div class="w3-container w3-mobile">
   <form action="" method="post">
     <label for="bookId"><b>Select Author record to delete</b></label>
-    <select class="w3-select" name="bookId" id="bookId" required>
+    <select class="w3-select" name="authorId" id="authorId" required>
      <option value="" disabled selected>Choose your option</option>
      <!-- Outputs books and selects based on id for easier updating of database -->
      <?php foreach($_SESSION['books'] as $books){ ?>
