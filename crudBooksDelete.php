@@ -26,10 +26,24 @@ session_start();
    <a href="authors.php" class="w3-bar-item w3-button">Authors</a>
 <?php endif; ?>
 <?php if($_SESSION['role'] == "librarian") :?>
-  <a href="crudBooks.php" class="w3-bar-item w3-button">Records: Books</a>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Records: Books</button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="crudBooksAdd.php" class="w3-bar-item w3-button">Add new Book</a>
+        <a href="crudBooksDelete.php" class="w3-bar-item w3-button">Delete Book</a>
+        <a href="crudBooksUpdate.php" class="w3-bar-item w3-button">Update Book</a>
+      </div>
+  </div>
 <?php endif; ?>
 <?php if($_SESSION['role'] == "librarian") :?>
-  <a href="crudAuthors.php" class="w3-bar-item w3-button">Records: Authors</a>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Records: Authors</button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="crudAuthorsAdd.php" class="w3-bar-item w3-button">Add new Author</a>
+        <a href="crudAuthorsDelete.php" class="w3-bar-item w3-button">Delete Author</a>
+        <a href="crudAuthorsUpdate.php" class="w3-bar-item w3-button">Update Author</a>
+      </div>
+  </div>
 <?php endif; ?>
  <a href="code/php/includes/logout.inc.php" class="w3-bar-item w3-button w3-orange w3-right">Logout</a>
  <a href="" class="w3-bar-item w3-button w3-right"><?php echo ucfirst($_SESSION['username'])." | ".strtoupper($_SESSION['role']);?></a>
