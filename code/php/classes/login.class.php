@@ -76,7 +76,7 @@ class Login extends DbH
       $stmt=null;
 
       // fetch all distinct authors for librarians
-      $stmt = $this->connect()->prepare('SELECT DISTINCT * from authors;');
+      $stmt = $this->connect()->prepare('SELECT DISTINCT author_name,age,genre from authors;');
       if(!$stmt->execute([])) // if query doesnt work throw error
       {
         $stmt = null;
