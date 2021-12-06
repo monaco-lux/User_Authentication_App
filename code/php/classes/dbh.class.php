@@ -2,6 +2,7 @@
 
 class DbH
 {
+  // this is to connect to the database succesfully
 
   protected function connect()
   {

@@ -26,6 +26,7 @@ class CRUDController extends CRUD
       }
     }
 
+// various functions to execute CRUD
   public function addBook()
   {
     $this->doAddBook($this->bookName,$this->year,$this->genre,$this->ageGroup);
