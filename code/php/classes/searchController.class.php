@@ -1,5 +1,5 @@
 <?php
-
+// purpose of controllers are to organize everything
 class SearchController extends Search
 {
 

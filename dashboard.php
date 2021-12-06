@@ -26,6 +26,7 @@ session_start();
  <?php if($_SESSION['role'] == "librarian") :?>
    <a href="authors.php" class="w3-bar-item w3-button">Authors</a>
 <?php endif; ?>
+<!-- Only Librarians can see and interact with the Book CRUD-->
 <?php if($_SESSION['role'] == "librarian") :?>
   <div class="w3-dropdown-hover">
     <button class="w3-button">Records: Books</button>
@@ -36,6 +37,7 @@ session_start();
       </div>
   </div>
 <?php endif; ?>
+<!-- Only Librarians can see and interact with the Author CRUD-->
 <?php if($_SESSION['role'] == "librarian") :?>
   <div class="w3-dropdown-hover">
     <button class="w3-button">Records: Authors</button>
@@ -54,12 +56,14 @@ session_start();
     <h2>Dashboard</h2>
 </div>
 
+<!-- If user is not logged in it takes them back to the index page-->
 <?php
 if(!isset($_SESSION['userid']))
 {
   header("Location: index.php?error=notallowed");
 }
-echo "There's nothing here right now.";
+// outputs a random quote everytime you login
+echo $_SESSION['quote'][0]['quote']." - ".$_SESSION['quote'][0]['author'];
 ?>
 
 

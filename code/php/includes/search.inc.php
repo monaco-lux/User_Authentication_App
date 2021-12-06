@@ -7,6 +7,7 @@ include "../classes/searchController.class.php";
 
 $newSearch = new SearchController();
 
+// call methods based on button clicked
 
 if(isset($_POST['bookSearch']))
 {

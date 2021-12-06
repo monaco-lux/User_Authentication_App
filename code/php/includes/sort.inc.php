@@ -5,6 +5,8 @@ include "../classes/dbh.class.php";
 include "../classes/sort.class.php";
 include "../classes/sortController.class.php";
 
+// call each method based on button clicked
+
 $newSort = new SortController();
 
 if(isset($_POST['sortBookName']))

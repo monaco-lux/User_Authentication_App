@@ -34,7 +34,7 @@ if(isset($_SESSION['userid']))
     <h2>Sign Up</h2>
 </div>
 
-
+<!-- form to use signup -->
 <div class="w3-section w3-container w3-mobile">
   <form action='code/php/includes/signUpWriteBack.inc.php' method='post'>
 
@@ -74,6 +74,7 @@ if(isset($_SESSION['userid']))
      <option value="librarian">Librarian</option>
    </select>
 
+   <!-- Added to ensure new librarian accounts can be controlled-->
     <label for="passCode" id="passCodeLabel"><b>Librarian Creation Passcode</b></label>
     <input
      type="password"

@@ -105,6 +105,19 @@ class Login extends DbH
         exit();
       }
 
+      // get a random quote for the dashboard
+      $stmt = $this->connect()->prepare('SELECT * from quotes ORDER BY RAND() LIMIT 1;');
+      if(!$stmt->execute([])) // if query doesnt work throw error
+      {
+        $stmt = null;
+        header("Location: ../../../index.php?error=couldnotgetquote");
+        exit();
+      }
+//fetch all data as an associative array and store in session value
+      $quote = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $_SESSION['quote'] = $quote;
+      $stmt=null;
+
     }
 
 

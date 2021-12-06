@@ -1,6 +1,6 @@
 <?php
 
-
+// purpose of controllers are to organize everything
 class CRUDController extends CRUD
 {
 

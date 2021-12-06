@@ -1,5 +1,7 @@
 <?php
 
+// purpose of controllers are to organize everything
+
 class SortController extends Sort
 {
 

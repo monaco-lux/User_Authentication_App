@@ -22,9 +22,11 @@ session_start();
 <div class="w3-bar w3-black">
   <a href="dashboard.php" class="w3-bar-item w3-button">Dashboard</a>
  <a href="books.php" class="w3-bar-item w3-button">Books</a>
+ <!-- Only Librarians should be able to see this -->
  <?php if($_SESSION['role'] == "librarian") :?>
    <a href="authors.php" class="w3-bar-item w3-button">Authors</a>
 <?php endif; ?>
+<!-- Only Librarians should be able to see this -->
 <?php if($_SESSION['role'] == "librarian") :?>
   <div class="w3-dropdown-hover">
     <button class="w3-button">Records: Books</button>
@@ -35,6 +37,7 @@ session_start();
       </div>
   </div>
 <?php endif; ?>
+<!-- Only Librarians should be able to see this -->
 <?php if($_SESSION['role'] == "librarian") :?>
   <div class="w3-dropdown-hover">
     <button class="w3-button">Records: Authors</button>
@@ -57,7 +60,7 @@ session_start();
 if(!isset($_SESSION['userid']))
 {
   header("Location: index.php?error=notallowed");
-} elseif($_SESSION['role'] == "member")
+} elseif($_SESSION['role'] == "member") // if member - kick them out
 {
   header("Location: dashboard.php?error=notallowed");
 }
