@@ -120,7 +120,7 @@ class Login extends DbH
 
     }
 
-
+    $_SESSION['recovery'] = false;
     $stmt = null;
   }
 

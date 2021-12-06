@@ -57,10 +57,14 @@ session_start();
 </div>
 
 <?php
+// check if user is allowed
 if(!isset($_SESSION['userid']))
 {
   header("Location: index.php?error=notallowed");
 } elseif($_SESSION['role'] == "member") // if member - kick them out
+{
+  header("Location: dashboard.php?error=notallowed");
+} elseif($_SESSION['recovery'] == true)
 {
   header("Location: dashboard.php?error=notallowed");
 }

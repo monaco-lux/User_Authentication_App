@@ -58,9 +58,13 @@ session_start();
 
 <!-- If user is not logged in it takes them back to the index page-->
 <?php
+// check if user is allowed
 if(!isset($_SESSION['userid']))
 {
   header("Location: index.php?error=notallowed");
+} elseif($_SESSION['recovery'] == true)
+{
+  header("Location: dashboard.php?error=notallowed");
 }
 // outputs a random quote everytime you login
 echo $_SESSION['quote'][0]['quote']." - ".$_SESSION['quote'][0]['author'];
