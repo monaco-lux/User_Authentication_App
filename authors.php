@@ -66,7 +66,7 @@ if(!isset($_SESSION['userid']))
 <div class="w3-container w3-section w3-mobile">
   <h3><u>Author Search</u></h3>
 </div>
-<form class="w3-container">
+<form class="w3-container" action="code/php/includes/search.inc.php" method="post">
   <label for="searchAuthor">Search for an Author by name</label>
   <input
     type="text"
@@ -78,13 +78,14 @@ if(!isset($_SESSION['userid']))
   <button type="submit" class="w3-button w3-black w3-hover-green w3-section" name="authorSearch" id="authorSearch">Search 🔍</button>
 </form>
 
-<?php if($_SESSION['default'] == "Match") :
+<?php if($_SESSION['default'] == "MatchA") :
  // if there is a search outcome ?>
 <div class="w3-container w3-section w3-mobile">
   <h4><b>Search Results</b></h4>
   <table class="w3-table w3-bordered w3-mobile">
-    <tr class="w3-teal">
+    <tr class="w3-yellow">
       <th><b>Author</b></th>
+      <th><b>Book</b></th>
       <th><b>Age</b></th>
       <th><b>Genre</b></th>
     </tr>
@@ -94,6 +95,7 @@ if(!isset($_SESSION['userid']))
     ?>
     <tr>
       <td><?php echo $authors['author_name']; ?></td>
+      <td><?php echo $authors['book_name']; ?></td>
       <td><?php echo $authors['age'];?></td>
       <td><?php echo $authors['genre']; ?></td>
     </tr>
@@ -104,10 +106,10 @@ if(!isset($_SESSION['userid']))
 </div>
 <?php endif; ?>
 
-<?php if($_SESSION['default'] == "No Match") :
+<?php if($_SESSION['default'] == "No MatchA") :
  // if no search result?>
   <div class="w3-container w3-section w3-mobile">
-    <h4>Search Results</h4>
+    <h4><b>Search Results</b></h4>
     <?php echo "No Match found";?>
   </div>
 <?php endif; ?>
@@ -143,6 +145,19 @@ if($_SESSION['role'] == "librarian")
 //libraruan IF
 }
 ?>
+
+<div class="w3-container w3-section w3-mobile">
+  <div class="w3-row-padding">
+    <form action='code/php/includes/sort.inc.php' method='post'>
+      <div class="w3-third">
+        <button type="submit" class="w3-button w3-black w3-hover-green w3-section" name="sortAuthorName" id="sortAuthorName">Sort by Name</button>
+      </div>
+      <div class="w3-third">
+        <button type="submit" class="w3-button w3-black w3-hover-green w3-section" name="sortAuthorGenre" id="sortAuthorGenre">Sort by Genre</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 
 <div class="w3-container w3-teal w3-section w3-mobile">

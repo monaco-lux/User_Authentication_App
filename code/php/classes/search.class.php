@@ -19,7 +19,7 @@ class Search extends DbH
     if($stmt->rowCount() == 0) // if no results, throw error
     {
       $stmt = null;
-      $_SESSION['default'] = "No Match";
+      $_SESSION['default'] = "No MatchB";
       header("Location: ../../../books.php?error=no value returned");
       exit();
     }
@@ -27,7 +27,7 @@ class Search extends DbH
     // place everything as an associative array in a session value
     $bookSearch = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $_SESSION['bookOutput'] = $bookSearch;
-    $_SESSION['default'] = "Match";
+    $_SESSION['default'] = "MatchB";
     $stmt = null;
 
   }
@@ -36,7 +36,7 @@ class Search extends DbH
   {
     //insert into db with values gotten from login.class
     $likeValue = "%".$searchTerm."%";
-    $stmt = $this->connect()->prepare('SELECT * from authors WHERE author_name LIKE ?;');
+    $stmt = $this->connect()->prepare('SELECT L.book_name,A.author_name,A.author_id,A.age,A.genre FROM library as L LEFT JOIN authors AS A ON A.book_id = L.book_id WHERE author_name LIKE ?;');
 
     if(!$stmt->execute([$likeValue])) // if query doesnt work throw error
     {
@@ -48,7 +48,7 @@ class Search extends DbH
     if($stmt->rowCount() == 0) // if no results, throw error
     {
       $stmt = null;
-      $_SESSION['default'] = "No Match";
+      $_SESSION['default'] = "No MatchA";
       header("Location: ../../../authors.php?error=no value returned");
       exit();
     }
@@ -56,7 +56,7 @@ class Search extends DbH
     // place everything as an associative array in a session value
     $authorSearch = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $_SESSION['authorOutput'] = $authorSearch;
-    $_SESSION['default'] = "Match";
+    $_SESSION['default'] = "MatchA";
     $stmt = null;
   }
 

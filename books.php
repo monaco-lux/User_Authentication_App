@@ -77,12 +77,12 @@ if($_SESSION['role'] == "member" || $_SESSION['role'] == "librarian")
 
   <button type="submit" class="w3-button w3-black w3-hover-green w3-section" name="bookSearch" id="bookSearch">Search 🔍</button>
 </form>
-<?php if($_SESSION['default'] == "Match") :
+<?php if($_SESSION['default'] == "MatchB") :
  // if there is a search outcome ?>
 <div class="w3-container w3-section w3-mobile">
   <h4><b>Search Results</b></h4>
   <table class="w3-table w3-bordered w3-mobile">
-    <tr>
+    <tr class="w3-yellow">
       <th><b>Book</b></th>
       <th><b>Author</b></th>
       <th><b>Year</b></th>
@@ -107,7 +107,7 @@ if($_SESSION['role'] == "member" || $_SESSION['role'] == "librarian")
 </div>
 <?php endif; ?>
 
-<?php if($_SESSION['default'] == "No Match") :
+<?php if($_SESSION['default'] == "No MatchB") :
  // if no search result?>
   <div class="w3-container w3-section w3-mobile">
     <h4><b>Search Results</b></h4>
@@ -144,6 +144,19 @@ if($_SESSION['role'] == "member" || $_SESSION['role'] == "librarian")
 <?php
 //if statement
 }?>
+
+<div class="w3-container w3-section w3-mobile">
+  <div class="w3-row-padding">
+    <form action='code/php/includes/sort.inc.php' method='post'>
+      <div class="w3-third">
+        <button type="submit" class="w3-button w3-black w3-hover-green w3-section" name="sortBookName" id="sortBookName">Sort by Name</button>
+      </div>
+      <div class="w3-third">
+        <button type="submit" class="w3-button w3-black w3-hover-green w3-section" name="sortBookGenre" id="sortBookGenre">Sort by Genre</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <div class="w3-container w3-teal w3-section w3-mobile">
   <h5>Local Library CMS™ </h5>
