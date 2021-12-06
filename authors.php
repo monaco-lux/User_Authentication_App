@@ -67,7 +67,7 @@ if(!isset($_SESSION['userid']))
   <h3><u>Author Search</u></h3>
 </div>
 <form class="w3-container">
-  <label for="searchAuthor">Search for an Author</label>
+  <label for="searchAuthor">Search for an Author by name</label>
   <input
     type="text"
     name='searchAuthor'
@@ -75,8 +75,42 @@ if(!isset($_SESSION['userid']))
     class="w3-input w3-border"
   >
 
-  <button type="submit" class="w3-button w3-black w3-hover-green w3-section">Search 🔍</button>
+  <button type="submit" class="w3-button w3-black w3-hover-green w3-section" name="authorSearch" id="authorSearch">Search 🔍</button>
 </form>
+
+<?php if($_SESSION['default'] == "Match") :
+ // if there is a search outcome ?>
+<div class="w3-container w3-section w3-mobile">
+  <h4><b>Search Results</b></h4>
+  <table class="w3-table w3-bordered w3-mobile">
+    <tr class="w3-teal">
+      <th><b>Author</b></th>
+      <th><b>Age</b></th>
+      <th><b>Genre</b></th>
+    </tr>
+    <?php
+    foreach($_SESSION['authorOutput'] as $authors)
+    {
+    ?>
+    <tr>
+      <td><?php echo $authors['author_name']; ?></td>
+      <td><?php echo $authors['age'];?></td>
+      <td><?php echo $authors['genre']; ?></td>
+    </tr>
+    <?php
+    }
+     ?>
+  </table>
+</div>
+<?php endif; ?>
+
+<?php if($_SESSION['default'] == "No Match") :
+ // if no search result?>
+  <div class="w3-container w3-section w3-mobile">
+    <h4>Search Results</h4>
+    <?php echo "No Match found";?>
+  </div>
+<?php endif; ?>
 
 <div class="w3-container w3-section"></div>
 <?php
@@ -87,7 +121,7 @@ if($_SESSION['role'] == "librarian")
     <h3><u>Authors</u></h3>
   </div>
   <table class="w3-table w3-bordered w3-mobile">
-    <tr>
+    <tr class="w3-teal">
       <th><b>Author</b></th>
       <th><b>Age</b></th>
       <th><b>Genre</b></th>
