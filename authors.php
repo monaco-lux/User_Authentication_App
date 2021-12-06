@@ -86,7 +86,7 @@ if(!isset($_SESSION['userid']))
  // if there is a search outcome ?>
 <div class="w3-container w3-section w3-mobile">
   <h4><b>Search Results</b></h4>
-  <table class="w3-table w3-bordered w3-mobile">
+  <table class="w3-table w3-bordered w3-responsive">
     <tr class="w3-yellow">
       <th><b>Author</b></th>
       <th><b>Book</b></th>
@@ -126,7 +126,7 @@ if($_SESSION['role'] == "librarian")
   <div class="w3-container w3-section w3-mobile">
     <h3><u>Authors</u></h3>
   </div>
-  <table class="w3-table w3-bordered w3-mobile">
+  <table class="w3-table w3-bordered w3-responsive">
     <tr class="w3-teal">
       <th><b>Author</b></th>
       <th><b>Age</b></th>
